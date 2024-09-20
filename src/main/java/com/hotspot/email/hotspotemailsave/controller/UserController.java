@@ -21,13 +21,16 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<Map<String, Object>> createUser(@RequestBody User user) {
-        User savedUser = userService.saveUser(user);
-
-        // Создаем ответ с полем success
         Map<String, Object> response = new HashMap<>();
-        response.put("success", true);
-        response.put("user", savedUser);  // можно вернуть email, если нужно
-
+        try {
+            User savedUser = userService.saveUser(user);
+            response.put("success", true);
+            response.put("user", savedUser);
+        } catch (Exception e) {
+            response.put("success", false);
+            response.put("error", e.getMessage());
+            return ResponseEntity.status(500).body(response);
+        }
         return ResponseEntity.ok(response);
     }
 }
