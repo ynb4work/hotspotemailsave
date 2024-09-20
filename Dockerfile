@@ -3,9 +3,9 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 FROM openjdk:17.0.1-jdk-slim
-COPY --from=build /target/web-cargo-api-0.0.1-SNAPSHOT.jar hotspot.jar
+COPY --from=build /target/hotspotemailsave-0.0.1-SNAPSHOT.jar hotspotemailsave.jar
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","hotspot.jar"]
+ENTRYPOINT ["java","-jar","hotspotemailsave.jar"]
 
 
 
