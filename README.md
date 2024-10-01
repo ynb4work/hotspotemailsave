@@ -1,1 +1,1 @@
-my hotspot java app to save email frome users
+my hotspot java app to save email from users
