@@ -9,9 +9,8 @@ import lombok.Setter;
 @Getter
 public class EmailRequest {
 
-    // Геттеры и сеттеры
     @NotBlank(message = "Email is mandatory")
     @Email(message = "Email should be valid")
+    @ValidEmail(message = "Invalid email format") 
     private String email;
-
 }

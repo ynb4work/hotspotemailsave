@@ -16,6 +16,11 @@ public class UserService {
     }
 
     public User saveUser(User user) {
+        // Проверяем, существует ли уже email
+        if (userRepository.existsByEmail(user.getEmail())) {
+            throw new RuntimeException("Email already exists: " + user.getEmail());
+        }
+
         return userRepository.save(user);
     }
 

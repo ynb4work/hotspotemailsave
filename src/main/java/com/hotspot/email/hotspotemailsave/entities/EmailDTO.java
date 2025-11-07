@@ -15,5 +15,4 @@ public class EmailDTO {
     @Email(message = "Email should be valid")
     private String email;
 
-    // Getters and Setters
 }
